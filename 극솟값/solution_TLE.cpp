@@ -20,7 +20,7 @@ ll f(ll x)
     ll xx = 1;
     for (int i = 0; i < coef.size(); i++)
     {
-        res = (res + xx * coef[i]) % mod;
+        res = (res + (xx * coef[i])%mod) % mod;
         xx = (xx * x) % mod;
     }
     return res;

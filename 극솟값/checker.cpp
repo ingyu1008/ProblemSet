@@ -18,7 +18,7 @@ ll f(ll x)
     ll xx = 1;
     for (int i = 0; i < v.size(); i++)
     {
-        res = (res + xx * v[i]) % mod;
+        res = (res + (xx * v[i]) % mod) % mod;
         xx = (xx * x) % mod;
     }
     return res;

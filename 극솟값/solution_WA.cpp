@@ -21,7 +21,7 @@ ll f(ll x)
     ll xx = 1;
     for (int i = 0; i < coef.size(); i++)
     {
-        res = (res + (xx * coef[i]) % mod) % mod;
+        res = (res + xx * coef[i]) % mod;
         xx = (xx * x) % mod;
     }
     return res;
@@ -71,19 +71,42 @@ int main(void)
         v[0] = 2147483647;
         v[N + 1] = 2147483647;
 
-        int min = 2147483647;
-        int temp, ans;
-        for (int i = 1; i <= N; i++)
+        if (get(1) < get(2))
         {
-            temp = get(i);
-            if (min > temp)
+            std::cout << "1\n";
+            continue;
+        }
+        else if (get(N) < get(N - 1))
+        {
+            std::cout << N << "\n";
+            continue;
+        }
+        else
+        {
+            int lo = 1;
+            int hi = N;
+
+            while (lo < hi) //O(lgN) 이분탐색
             {
-                min = temp;
-                ans = i;
+                int m = (lo + hi) >> 1;
+                int mm = get(m);
+                int ml = get(m - 1);
+                int mr = get(m + 1);
+                if (ml > mm && mm < mr)
+                {
+                    std::cout << m << "\n";
+                    break;
+                }
+                else if (ml < mm)
+                {
+                    hi = m;
+                }
+                else
+                {
+                    lo = m;
+                }
             }
         }
-
-        std::cout << ans << "\n";
     }
     return 0;
 }
