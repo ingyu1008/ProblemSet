@@ -21,7 +21,7 @@ ll f(ll x)
         res = (res + (xx * v[i]) % mod) % mod;
         xx = (xx * x) % mod;
     }
-    return res;
+    return (res % mod + mod) % mod;
 }
 
 inline int readAndCheckAnswer(InStream &in)
@@ -47,20 +47,15 @@ int main(int argc, char *argv[])
 {
     registerTestlibCmd(argc, argv);
 
-    int T = inf.readInt();
+    N = inf.readInt();
+    M = inf.readInt();
+    v.resize(M + 1);
 
-    for (int t = 0; t < T; t++)
+    for (int i = 0; i <= M; i++)
     {
-        N = inf.readInt();
-        M = inf.readInt();
-        v.resize(M + 1);
-
-        for (int i = 0; i <= M; i++)
-        {
-            v[i] = inf.readInt();
-        }
-
-        readAndCheckAnswer(ouf);
+        v[i] = inf.readInt();
     }
+
+    readAndCheckAnswer(ouf);
     quitf(_ok, "Accepted");
 }
