@@ -41,7 +41,7 @@ for item in liadv:
     except:
         print(f"No Result Found with key {item}.")
 
-dbadv.DB = sorted(dbadv.DB.items(), key=(lambda x: x[1]), reverse=True)
+dbadv.DB = dict(sorted(dbadv.DB.items(), key=(lambda x: x[1]), reverse=True))
 dbadv.writeDB("Advanced.json")
 
 for item in libeg:
@@ -54,5 +54,5 @@ for item in libeg:
     except:
         print(f"No Result Found with key {item}.")
 
-dbbeg.DB = sorted(dbbeg.DB.items(), key=(lambda x: x[1]), reverse=True)
+dbbeg.DB = dict(sorted(dbbeg.DB.items(), key=(lambda x: x[1]), reverse=True))
 dbbeg.writeDB("Beginner.json")
