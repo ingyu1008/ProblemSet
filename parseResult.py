@@ -31,6 +31,7 @@ dbbeg = Database()
 liadv = ["ADV1", "ADV2", "ADV3", "ADV4", "ADV5", "ADV6"]
 libeg = ["BEG1", "BEG2", "BEG3", "BEG4", "BEG5", "BEG6"]
 
+
 for item in liadv:
     try:
         for key in list(result.DB[item].keys()):
